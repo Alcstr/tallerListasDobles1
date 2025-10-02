@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body>
+    <div class="auth-container">
+        <form class="auth-form" id="signup-form">
+            <h2>Sign Up</h2>
+            <input type="text" id="username" placeholder="Choose a Username" required>
+            <input type="password" id="password" placeholder="Choose a Password" required>
+            <button type="submit">Sign Up</button>
+            <p class="auth-switch">Already have an account? <a href="/login_page">Login</a></p>
+        </form>
+    </div>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password }),
+            });
+            if (response.ok) {
+                alert('Sign up successful! Please log in.');
+                window.location.href = '/login_page';
+            } else {
+                alert('Sign up failed. Username might be taken.');
+            }
+        });
+    </script>
+</body>
+</html>

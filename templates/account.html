@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-form">
+            <h2>My Account</h2>
+            <form id="account-form">
+                <label for="username">Change Username</label>
+                <input type="text" id="username" placeholder="New username">
+                <label for="password">Change Password</label>
+                <input type="password" id="password" placeholder="New password">
+                <button type="submit">Update Account</button>
+                <p class="auth-switch"><a href="/">Back to Player</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

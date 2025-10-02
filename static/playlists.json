@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Rocks",
+        "cover_art": "/static/images/Rocks-image.png",
+        "songs": [
+            {
+                "title": "Civil War",
+                "artist": "Guns and Roses",
+                "file": "/static/predefined_music/song1.mp3"
+            },
+            {
+                "title": "Jesus of Suburbia",
+                "artist": "Green Day",
+                "file": "/static/predefined_music/song2.mp3"
+            }
+        ]
+    },
+    {
+        "name": "First Playlist",
+        "cover_art": "/static/images/basketcase.png",
+        "songs": [
+            {
+                "title": "Basket Case",
+                "artist": "Green Day",
+                "file": "/static/predefined_music/song3.mp3"
+            }
+        ]
+    }
+]

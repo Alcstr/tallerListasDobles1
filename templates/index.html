@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livi Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <nav class="left-sidebar">
+            <div class="playlist-section">
+                <h2 data-lang-key="playlists_title">Playlists</h2>
+                <button id="create-playlist-btn" class="create-playlist-button">+ New Playlist</button>
+                <div id="playlist-list"></div>
+            </div>
+            <div class="account-section" id="account-section">
+                <a href="/login_page" data-lang-key="account_login">Login / Sign Up</a>
+            </div>
+        </nav>
+        <main class="main-view">
+            <div class="search-bar-top">
+                <input type="text" id="search-input" data-lang-key="search_placeholder" placeholder="Search for a song...">
+            </div>
+            <div id="search-results-container"></div>
+            <div class="player-wrapper-main">
+                <div id="youtube-player"></div>
+                <audio id="local-player" style="width:100%; display:none; border-radius: 15px;"></audio>
+            </div>
+            <div class="song-info-area">
+                <h3 id="current-song-title" data-lang-key="nothing_playing">Nothing Playing</h3>
+                <p id="current-song-artist"></p>
+            </div>
+            <div class="playback-controls-bottom">
+                <button id="prev-btn">⏮</button>
+                <button id="play-pause-btn">▶️</button>
+                <button id="next-btn">⏭</button>
+            </div>
+        </main>
+        <aside class="right-sidebar">
+            <div class="language-selector"><button id="lang-en">EN</button>|<button id="lang-es">ES</button></div>
+            <div class="subscription-ad" id="subscription-ad">
+                <h4 data-lang-key="ad_title">Go Premium</h4>
+                <p data-lang-key="ad_text">Download songs and listen offline!</p>
+                <a href="/subscribe_page" class="subscribe-button" data-lang-key="ad_button">Subscribe</a>
+            </div>
+            <h2 data-lang-key="queue_title">Play Queue</h2>
+            <div class="queue-list" id="queue-list"></div>
+        </aside>
+    </div>
+    <div id="new-playlist-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h3>Create New Playlist</h3>
+            <input type="text" id="new-playlist-name" placeholder="My Awesome Playlist">
+            <button id="save-playlist-btn">Save</button>
+            <button id="cancel-playlist-btn">Cancel</button>
+        </div>
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
